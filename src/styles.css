@@ -1,0 +1,205 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: sans-serif;
+}
+
+.container {
+  margin-top: 100px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 40px;
+}
+
+.friend-list {
+  margin-bottom: 20px;
+}
+
+.friend-list__item {
+  padding: 10px;
+  border-radius: 6px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.active {
+  background-color: #2d2d2d;
+  color: #fff;
+}
+
+.friend-list__item:hover {
+  background-color: #2d2d2d;
+  color: #fff;
+}
+
+.friend-list__content {
+  display: flex;
+  align-items: center;
+  margin-right: 15px;
+}
+
+.friend-list__photo {
+  margin-right: 15px;
+  border-radius: 100px;
+}
+
+.friend-list__name {
+  font-weight: bold;
+  margin-bottom: 3px;
+}
+
+.friend-list__status {
+  font-size: 13px;
+}
+
+.friend-list__status:hover {
+  color: white;
+}
+
+.friend-list__button {
+  background-color: #9e1b1b;
+  color: white;
+  padding: 8px 14px;
+  font-size: 13px;
+  border: none;
+  font-weight: bold;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.add-friend-form {
+  background-color: #2d2d2d;
+  padding: 15px;
+  border-radius: 5px;
+  margin-bottom: 15px;
+}
+
+.add-friend-form__field-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.add-friend-form__label-group {
+  margin-right: 20px;
+}
+
+.add-friend-form__emoji {
+  margin-right: 12px;
+}
+
+.add-friend-form__label {
+  color: #fff;
+}
+
+.add-friend-form__input,
+.add-friend-form__button {
+  width: 150px;
+}
+
+.add-friend-form__input {
+  padding: 5px;
+  border: 1px solid #9e1b1b;
+  border-radius: 3px;
+  text-align: center;
+}
+
+.add-friend-form__action {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 20px;
+}
+
+.add-friend-form__button {
+  border: none;
+  background-color: #9e1b1b;
+  color: #fff;
+  padding: 8px 14px;
+  border-radius: 6px;
+  font-weight: bold;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.friend-control__action {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.friend-control__button {
+  background-color: #9e1b1b;
+  color: white;
+  padding: 8px 14px;
+  font-size: 13px;
+  border: none;
+  font-weight: bold;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-right: 15px;
+}
+
+.split-bill-form {
+  background-color: #2d2d2d;
+  color: #fff;
+  padding: 25px;
+  border-radius: 5px;
+}
+
+.split-bill-form__title {
+  margin-bottom: 25px;
+  text-transform: uppercase;
+}
+
+.split-bill-form__field {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.split-bill-form__label-wrapper {
+  display: flex;
+  align-items: center;
+  margin-right: 30px;
+}
+
+.split-bill-form__emoji {
+  margin-right: 7px;
+}
+
+.split-bill-form__input,
+.split-bill-form__button {
+  width: 100px;
+}
+
+.split-bill-form__input {
+  text-align: center;
+  padding: 5px;
+  border: 1px solid #9e1b1b;
+  border-radius: 3px;
+}
+
+.split-bill-form__action {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-start;
+  margin-top: 15px;
+}
+
+.split-bill-form__button {
+  border: none;
+  background-color: #9e1b1b;
+  color: #fff;
+  padding: 8px 14px;
+  border-radius: 6px;
+  font-weight: bold;
+  font-size: 13px;
+  cursor: pointer;
+}
