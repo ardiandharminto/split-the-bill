@@ -133,7 +133,3 @@ Kontribusi selalu diterima! Silakan buat pull request atau buka issue di reposit
 ## **Lisensi**
 
 Proyek ini menggunakan lisensi [MIT](LICENSE). Silakan gunakan dan modifikasi sesuai kebutuhan.
-
----
-
-README ini dapat dimodifikasi lebih lanjut sesuai kebutuhan aplikasi Anda. Jika aplikasi memiliki fitur tambahan, tambahkan deskripsi singkatnya di bagian "Fitur" atau "Struktur Komponen".
