@@ -1,11 +1,16 @@
 import { useState } from "react";
 
+import Button from "./Button";
+
 export default function AddFriendForm({ onAddFriend }) {
   const [name, setName] = useState("");
   const [avatar, setAvatar] = useState("");
 
   function handleSubmit(e) {
     e.preventDefault();
+
+    if (!name || !avatar) return;
+
     const newFriend = {
       id: Date.now(),
       name: name,
@@ -14,7 +19,9 @@ export default function AddFriendForm({ onAddFriend }) {
       isPayer: false,
       imageUrl: avatar,
     };
+
     onAddFriend(newFriend);
+
     setName("");
     setAvatar("");
   }
@@ -46,7 +53,7 @@ export default function AddFriendForm({ onAddFriend }) {
         />
       </div>
       <div className="add-friend-form__action">
-        <button className="add-friend-form__button">Add</button>
+        <Button className="add-friend-form__button">Add</Button>
       </div>
     </form>
   );

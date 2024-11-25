@@ -1,28 +1,22 @@
 import { useState } from "react";
 
-export default function SplitBillForm({
-  isSplitBillFormOpen,
-  selectedFriend,
-  onUpdateFriendBill,
-}) {
+import Button from "./Button";
+
+export default function SplitBillForm({ selectedFriend, onSplitBill }) {
   const [bill, setBill] = useState("");
   const [myExpense, setMyExpense] = useState("");
+  const friendExpense = bill ? bill - myExpense : "";
   const [isPayer, setIsPayer] = useState(false);
 
   function handleSubmit(e) {
     e.preventDefault();
-    onUpdateFriendBill(selectedFriend.id, bill, myExpense, isPayer);
-    setBill("");
-    setMyExpense("");
-    setIsPayer(false);
+
+    if (!bill || !myExpense) return;
+    onSplitBill(isPayer ? -myExpense : friendExpense);
   }
 
   return (
-    <form
-      onSubmit={handleSubmit}
-      className="split-bill-form"
-      style={!isSplitBillFormOpen ? { visibility: "hidden" } : {}}
-    >
+    <form onSubmit={handleSubmit} className="split-bill-form">
       <h3 className="split-bill-form__title">
         Split A Bill With {selectedFriend.name}
       </h3>
@@ -46,7 +40,11 @@ export default function SplitBillForm({
         <input
           type="number"
           value={myExpense}
-          onChange={(e) => setMyExpense(Number(e.target.value))}
+          onChange={(e) =>
+            setMyExpense(
+              Number(e.target.value) > bill ? myExpense : Number(e.target.value)
+            )
+          }
           className="split-bill-form__input"
         />
       </div>
@@ -57,7 +55,7 @@ export default function SplitBillForm({
         </div>
         <input
           type="number"
-          value={bill - myExpense > 0 ? bill - myExpense : ""}
+          value={friendExpense}
           disabled
           className="split-bill-form__input"
           style={{ color: "#fff" }}
@@ -78,7 +76,7 @@ export default function SplitBillForm({
         </select>
       </div>
       <div className="split-bill-form__action">
-        <button className="split-bill-form__button">Split bill</button>
+        <Button className="split-bill-form__button">Split bill</Button>
       </div>
     </form>
   );

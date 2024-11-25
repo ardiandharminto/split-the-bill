@@ -1,70 +1,139 @@
-# Getting Started with Create React App
+---
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# **Split Bill App**
 
-## Available Scripts
+Aplikasi **Split The Bill** adalah aplikasi sederhana berbasis web untuk membantu Anda membagi tagihan dengan teman secara adil. Aplikasi ini memungkinkan pengguna untuk menambahkan teman, menghitung pengeluaran masing-masing, dan menentukan siapa yang membayar tagihan.
 
-In the project directory, you can run:
+## **Fitur**
 
-### `npm start`
+- **Daftar Teman**: Menampilkan daftar teman yang telah ditambahkan.
+- **Form Tambah Teman**: Menambahkan teman baru ke dalam daftar.
+- **Form Split Bill**: Menghitung pembagian tagihan dengan input seperti total bill, pengeluaran pribadi, dan menentukan siapa yang membayar.
+- **Antarmuka Interaktif**: Desain sederhana dan responsif untuk pengalaman pengguna yang nyaman.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+---
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## **Struktur Komponen**
 
-### `npm test`
+1. **`FriendList`**
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+   - Menampilkan daftar teman.
+   - Memiliki fitur untuk memilih teman untuk proses pembagian tagihan.
 
-### `npm run build`
+2. **`AddFriendForm`**
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+   - Formulir untuk menambahkan teman baru.
+   - Input nama teman yang akan ditambahkan.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+3. **`SplitBillForm`**
+   - Formulir utama untuk membagi tagihan.
+   - Fitur:
+     - Input total tagihan.
+     - Input pengeluaran pengguna.
+     - Perhitungan otomatis pengeluaran teman.
+     - Dropdown untuk memilih siapa yang membayar tagihan.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+---
 
-### `npm run eject`
+## **Teknologi yang Digunakan**
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- **Frontend**: React.js
+- **CSS**: Konvensi BEM untuk penamaan class CSS.
+- **State Management**: Menggunakan state bawaan React (`useState`).
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+---
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## **Cara Menggunakan**
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+1. **Clone Repository**
 
-## Learn More
+   ```bash
+   git clone https://github.com/ardiandharminto/split-the-bill.git
+   cd split-the-bill
+   ```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+2. **Install Dependencies**
+   Pastikan Anda memiliki Node.js dan npm/yarn terinstal di sistem Anda. Kemudian jalankan:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+   ```bash
+   npm install
+   ```
 
-### Code Splitting
+   atau
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+   ```bash
+   yarn install
+   ```
 
-### Analyzing the Bundle Size
+3. **Jalankan Aplikasi**
+   Jalankan aplikasi di development server:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+   ```bash
+   npm start
+   ```
 
-### Making a Progressive Web App
+   atau
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+   ```bash
+   yarn start
+   ```
 
-### Advanced Configuration
+   Buka [http://localhost:3000](http://localhost:3000) di browser untuk melihat aplikasi.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+4. **Gunakan Aplikasi**
+   - Tambahkan teman menggunakan form **Add Friend**.
+   - Pilih teman dari daftar untuk memulai pembagian tagihan.
+   - Masukkan detail tagihan di form **Split Bill**.
+   - Klik **Split bill** untuk melihat hasil pembagian.
 
-### Deployment
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+## **Struktur Direktori**
 
-### `npm run build` fails to minify
+```plaintext
+src/
+├── components/
+│   ├── FriendList.js       // Komponen untuk menampilkan daftar teman
+│   ├── FriendItem.js       // Komponen untuk menampilkan informasi teman dan tagihan
+│   ├── AddFriendForm.js    // Komponen untuk form tambah teman
+│   └── SplitBillForm.js    // Komponen untuk form pembagian tagihan
+├── App.js                  // Komponen utama
+├── styles.css              // CSS global
+└── index.js                // Entry point aplikasi
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+---
+
+## **Tata Nama Class CSS (BEM)**
+
+Aplikasi ini menggunakan konvensi **BEM (Block Element Modifier)** untuk penamaan class CSS. Contoh:
+
+- **Block**: `split-bill-form` (Mewakili form pembagian tagihan).
+- **Element**: `split-bill-form__field` (Field dalam form).
+- **Modifier**: `split-bill-form__button--secondary` (Variasi tombol).
+
+---
+
+## **Pengembangan**
+
+### **Menambahkan Fitur Baru**
+
+1. Buat komponen baru di dalam folder `components/`.
+2. Tambahkan styling di folder `styles/` dengan penamaan BEM.
+3. Perbarui file `App.js` untuk memasukkan komponen baru.
+
+---
+
+## **Kontribusi**
+
+Kontribusi selalu diterima! Silakan buat pull request atau buka issue di repository.
+
+---
+
+## **Lisensi**
+
+Proyek ini menggunakan lisensi [MIT](LICENSE). Silakan gunakan dan modifikasi sesuai kebutuhan.
+
+---
+
+README ini dapat dimodifikasi lebih lanjut sesuai kebutuhan aplikasi Anda. Jika aplikasi memiliki fitur tambahan, tambahkan deskripsi singkatnya di bagian "Fitur" atau "Struktur Komponen".

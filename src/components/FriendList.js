@@ -1,12 +1,6 @@
 import FriendItem from "./FriendItem";
 
-export default function FriendList({
-  friends,
-  selectedFriend,
-  onSetSelectedFriend,
-  isSplitBillFormOpen,
-  onSetIsSplitBillFormOpen,
-}) {
+export default function FriendList({ friends, selectedFriend, onSelection }) {
   return (
     <div className="friend-list">
       {friends.map((friend) => (
@@ -14,9 +8,7 @@ export default function FriendList({
           key={friend.id}
           friend={friend}
           selectedFriend={selectedFriend}
-          onSetSelectedFriend={onSetSelectedFriend}
-          isSplitBillFormOpen={isSplitBillFormOpen}
-          onSetIsSplitBillFormOpen={onSetIsSplitBillFormOpen}
+          onSelection={onSelection}
         />
       ))}
     </div>

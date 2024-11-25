@@ -1,52 +1,37 @@
-export default function FriendItem({
-  friend,
-  selectedFriend,
-  onSetSelectedFriend,
-  isSplitBillFormOpen,
-  onSetIsSplitBillFormOpen,
-}) {
-  function handleSelectFriend() {
-    onSetIsSplitBillFormOpen((o) => !o);
-    if (selectedFriend.id !== friend.id) onSetSelectedFriend(friend);
-  }
+import Button from "./Button";
+
+export default function FriendItem({ friend, selectedFriend, onSelection }) {
+  const isSelected = selectedFriend?.id === friend.id;
 
   return (
-    <div
-      className={`friend-list__item ${
-        selectedFriend.id === friend.id && isSplitBillFormOpen ? "active" : ""
-      }`}
-    >
+    <div className={`friend-list__item ${isSelected ? "active" : ""}`}>
       <div className="friend-list__content">
         <img
           className="friend-list__photo"
           src={friend.imageUrl}
-          alt="avatar"
+          alt={friend.name}
         />
         <div className="friend-list__info">
           <p className="friend-list__name">{friend.name}</p>
-          <span
-            className="friend-list__status"
-            style={
-              friend.bill / 2 === friend.myExpense
-                ? {}
-                : friend.isPayer
-                ? { color: "red" }
-                : { color: "green" }
-            }
-          >
-            {friend.bill / 2 === friend.myExpense
-              ? `You and ${friend.name} are even`
-              : friend.isPayer
-              ? `You owe ${friend.name} Rp${friend.myExpense}`
-              : `${friend.name} owes you Rp${friend.bill - friend.myExpense}`}
-          </span>
+          {friend.balance < 0 && (
+            <span style={{ color: "red" }}>
+              You owe {friend.name} Rp{Math.abs(friend.balance)}
+            </span>
+          )}
+          {friend.balance > 0 && (
+            <span style={{ color: "green" }}>
+              {friend.name} owes you Rp{Math.abs(friend.balance)}
+            </span>
+          )}
+          {friend.balance === 0 && <span>You and {friend.name} are even</span>}
         </div>
       </div>
-      <button className="friend-list__button" onClick={handleSelectFriend}>
-        {selectedFriend.id === friend.id && isSplitBillFormOpen
-          ? "Close"
-          : "Select"}
-      </button>
+      <Button
+        className="friend-list__button"
+        onClick={() => onSelection(friend)}
+      >
+        {isSelected ? "Close" : "Select"}
+      </Button>
     </div>
   );
 }
